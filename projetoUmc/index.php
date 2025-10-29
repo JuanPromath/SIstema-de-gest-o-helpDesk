@@ -20,9 +20,53 @@
 
     </form>
 
+    <h1>criacao cargo</h1>
+
+    <form action="index.php" method="post">
+
+        <input type="text" sizeof='50' id='cargo' name="cargo" placeholder="cargo">
+
+        <button type="submit">enviar</button>
+
+    </form>
+
     <h1>form criação funcionario</h1>
 
+    <form action="index.php" method="post">
+
+        <input type="text" sizeof='50' id='nomeF' name="nomeF" placeholder="nomeF">
+        <input type="text" sizeof='50' id='cpfF' name="cpfF" placeholder="cpfF">
+        <input type="email" placeholder="emailF" id="emailF" name="emailF">
+        <input type="text" placeholder="cargoF" id="cargoF" name="cargoF">
+
+        <button type="submit">enviar</button>
+
+    </form>
+
+    <h1>conta</h1>
+    <form action="index.php" method="post">
+
+        <input type="text" sizeof='50' id='senha' name="senha" placeholder="senha">
+        <input type="text" placeholder="funcionario" id="funcionario" name="funcionario">
+
+        <button type="submit">enviar</button>
+
+    </form>
+
     <h1>form criação chamado</h1>
+
+    <form action="index.php" method="post">
+
+        <input type="text" sizeof='50' id='bo' name="bo" placeholder="bo">
+        <input type="text" sizeof='50' id='status' name="status" placeholder="status">
+        <input type="text" id="cliente" name="cliente" placeholder="cliente">
+        <input type="text" id="func" name="func" placeholder="func">
+        <input type="text" id="conta" name="conta" placeholder="conta">
+        <input type="text" id="cargo" name="cargo" placeholder="cargo">
+
+        <button type="submit">enviar</button>
+
+    </form>
 
 </body>
 </html>
@@ -46,18 +90,24 @@
         die('campos inválidos');
     }
 
+    function insert($colunas, $valores){
+
+        var_dump($colunas);
+        var_dump($valores);
+        for($i = 0; $i < sizeof($valores);$i++){
+
+            echo $valores[$i];
+
+        }
+
+    }
+
     $consulta = "INSERT INTO Cliente (nome,cpf,email) VALUES('" . $_POST['nome'] . "','" . $_POST['cpf'] . "','" . $_POST['email'] . "')";
-    echo $consulta;
+    //echo $consulta;
+
+    insert(['nome', 'cpf', 'email'], $_POST);
 
     $resposta = mysqli_query($conn,$consulta);
-
-    if($resposta){
-        $consulta2 = 'SELECT * FROM Cliente';
-        $resposta2 = mysqli_query($conn,$consulta2);
-        var_dump($resposta2);
-    }else{
-        echo mysqli_error($conn);
-    }
 
 
 ?>
