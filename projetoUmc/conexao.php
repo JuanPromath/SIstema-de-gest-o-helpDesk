@@ -48,7 +48,7 @@
         for($i = 0; $i < sizeof($campos);$i++){
             
             if($i == sizeof($campos) - 1){
-                $insert .= $campos[$i] . ") VALUES ('";
+                $insert .= $campos[$i] . ") VALUES (";
             }else{
                 $insert .= $campos[$i] . ", ";
             }
@@ -57,11 +57,21 @@
         //echo $insert;
         $index = 0;
         foreach($valores as $campo => $valor){
+
+            echo $campo;
+
+            if($campo == 'cargo' || $campo == 'funcionario'){
+                $valor = "" . $valor . "";
+            }else{
+                $valor = "'" . $valor . "'";
+            }
             
             if($index == sizeof($valores) - 1){
-                $insert .= $valor . "');";
+                $insert .= ", " . $valor . ");";
+            }else if($index == 0){
+                $insert .= $valor;
             }else{
-                $insert .= $valor . "', '";
+                $insert .= ", " . $valor . "";
             }
 
             $index++;

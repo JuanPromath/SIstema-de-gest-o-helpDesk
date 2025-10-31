@@ -20,7 +20,6 @@
         <input type="text" id='nome' name="nome" placeholder="nome">
         <input type="text" sizeof='11' id='cpf' name="cpf" placeholder="cpf">
         <input type="email" placeholder="email" id="email" name="email">
-        <input type="text" placeholder="cargo" id="cargo" name="cargo">
 
         <select name="cargo" id="cargo">
             <?php
@@ -32,7 +31,7 @@
                 if (mysqli_num_rows($result) > 0) {
                             
                     while ($row = mysqli_fetch_assoc($result)) {
-                        print_r("<option value='" . $row['codigo']."'>" . $row['nome']);
+                        print_r("<option class='bucefalos' value='" . $row['codigo']."'>" . $row['nome']);
                     }
 
                 }else {
@@ -49,3 +48,15 @@
 
 </body>
 </html>
+
+<?php
+
+    if(!validaCampo('nome') && !validaCampo('email') && !validaCampo('cpf')){
+        die('campos inválidos');
+    }
+
+    insert(['nome','cpf','email','id_cargo'], $_POST, 'funcionario');
+
+
+
+?>

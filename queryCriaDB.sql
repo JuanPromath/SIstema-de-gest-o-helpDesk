@@ -59,3 +59,5 @@ CREATE TABLE telefone_funcionario(
     FOREIGN KEY (Id_funcionario) REFERENCES Funcionario(codigo)
 );
 
+SELECT * from funcionario 
+INNER JOIN cargo on cargo.codigo = funcionario.id_cargo;
