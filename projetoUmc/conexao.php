@@ -61,7 +61,7 @@
             echo $campo;
 
             if($campo == 'cargo' || $campo == 'funcionario'){
-                $valor = "" . $valor . "";
+                $valor = $valor;
             }else{
                 $valor = "'" . $valor . "'";
             }
