@@ -67,14 +67,10 @@
                 $valor = "'" . $valor . "'";
             }
             
-            if($index != 0){
-                $insert .= ', ';
-            }
-
             if($index == sizeof($valores) - 1){
                 $insert .= $valor . ");";
             }else{
-                $insert .= $valor;
+                $insert .= $valor . ', ';
             }
 
             $index++;
