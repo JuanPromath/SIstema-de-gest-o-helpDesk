@@ -59,6 +59,7 @@
         foreach($valores as $campo => $valor){
 
             echo $campo;
+            echo $index;
 
             if($campo == 'cargo' || $campo == 'funcionario'){
                 $valor = $valor;
@@ -66,12 +67,14 @@
                 $valor = "'" . $valor . "'";
             }
             
+            if($index != 0){
+                $insert .= ', ';
+            }
+
             if($index == sizeof($valores) - 1){
-                $insert .= ", " . $valor . ");";
-            }else if($index == 0){
-                $insert .= $valor;
+                $insert .= $valor . ");";
             }else{
-                $insert .= ", " . $valor . "";
+                $insert .= $valor;
             }
 
             $index++;

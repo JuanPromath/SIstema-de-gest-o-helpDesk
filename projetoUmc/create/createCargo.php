@@ -19,7 +19,7 @@
 
     <form action="createCargo.php" method="post">
 
-        <input type="text"  id='cargo' name="cargo" placeholder="cargo">
+        <input type="text" id='cargo' name="nome" placeholder="cargo">
 
         <button type="submit">enviar</button>
 
@@ -32,7 +32,7 @@
 
     include '../conexao.php';
 
-    if(!validaCampo('cargo')){
+    if(!validaCampo('nome')){
         die('campos inválidos');
     }
 
