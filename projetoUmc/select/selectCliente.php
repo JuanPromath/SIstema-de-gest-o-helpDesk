@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de</title>
+    <title>Lista de Cargo</title>
 </head>
 <body>
 
@@ -12,7 +12,7 @@
 
             include '../conexao.php';
 
-            $result = select("cargo");
+            $result = select("cliente");
 
             if (mysqli_num_rows($result) > 0) {
                         
@@ -27,7 +27,7 @@
                 }
 
             }else {
-                print_r("sem cargos");//tem que virar excessão
+                print_r("sem clientes");//tem que virar excessão
             }
 
 

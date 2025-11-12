@@ -29,11 +29,14 @@
         for($i = 0; $i < sizeof($campos);$i++){
             
             if($i == sizeof($campos) - 1){
-                $select .= $campos[$i] . " FROM " . $table . ";";
+                $select .= $campos[$i] . " FROM " . $table;
             }else{
                 $select .= $campos[$i] . ", ";
             }
 
+        }
+        if($table == 'funcionario'){
+            $select .= ' INNER JOIN cargo on cargo.codigo = funcionario.id_cargo;';
         }
 
         $result = mysqli_query($conn, $select);
