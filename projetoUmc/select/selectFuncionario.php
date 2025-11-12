@@ -12,7 +12,7 @@
 
             include '../conexao.php';
 
-            $result = select("funcionario");
+            $result = select("funcionario", ['funcionario.nome', 'cargo.nome as cargo', 'cpf', 'email']);
 
             if (mysqli_num_rows($result) > 0) {
                         
