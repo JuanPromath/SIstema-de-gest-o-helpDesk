@@ -21,7 +21,7 @@
 
     };
 
-    function select($table, $campos=["*"]){
+    function select($table,$campos=["*"]){
 
         GLOBAL $conn;
         $select = "SELECT ";
