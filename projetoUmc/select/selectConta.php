@@ -11,8 +11,8 @@
         <?php
 
             include '../conexao.php';
-
-            $result = select("Conta_Sistema");
+            //selectInner(["Conta_Sistema", 'funcionario']);
+            $result = selectInner(["Conta_Sistema", 'funcionario', 'cargo']);
 
             if (mysqli_num_rows($result) > 0) {
                         

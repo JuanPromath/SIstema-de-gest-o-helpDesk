@@ -55,6 +55,27 @@
               ?>
         </select>
 
+        <label for="conta">conta:</label>
+        <select name="conta" id="conta">
+          <option value="">Selecione o cargo</option>
+            <?php
+
+              include '../conexao.php';
+
+              $result = select("Conta_Sistema");
+
+              if (mysqli_num_rows($result) > 0) {
+                          
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      print_r("<option value='" . $row['codigo']."'>" . $row['nome']);
+                  }
+
+              }else {
+                  print_r("sem cargos");//tem que virar excessão
+              }
+
+              ?>
+        </select>
         <button type="submit">Enviar Chamado</button>
       </form>
     </section>
