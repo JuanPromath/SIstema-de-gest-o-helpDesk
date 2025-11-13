@@ -1,0 +1,102 @@
+/* ======== Estilo geral ======== */
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: #1f2937;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  color: #333;
+}
+
+/* ======== Layout principal ======== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  gap: 2rem;
+}
+
+/* ======== Visualização (lado esquerdo) ======== */
+.display-box {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px dashed #9ca3af;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.display-box h2 {
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+/* ======== Formulário (lado direito) ======== */
+.form-inputs {
+  flex: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.form-inputs label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.form-inputs input,
+.form-inputs select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-inputs input:focus,
+.form-inputs select:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+button {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}

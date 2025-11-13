@@ -1,31 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criação de Cliente</title>
+  <link rel="stylesheet" href="styleCliente.css">
 </head>
 <body>
 
-    <nav>
-        <a href="../index.php" rel="prev">Home</a>
-    </nav>
+  <nav>
+    <a href="../index.php" rel="prev">Home</a>
+  </nav>
 
-    <h1>form criação cliente</h1>
+  <main class="container">
+    <h1>Formulário de Criação de Cliente</h1>
 
-    <form action="createCliente.php" method="post">
+    <form action="createCliente.php" method="post" class="form-box">
 
-        <input type="text" sizeof='50' id='nome' name="nome" placeholder="nome">
-        <input type="text" sizeof='50' id='cpf' name="cpf" placeholder="cpf">
-        <input type="email" placeholder="email" id="email" name="email">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite o nome" required>
 
-        <button type="submit">enviar</button>
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Digite o email" required>
+
+      <button type="submit">Enviar</button>
 
     </form>
+  </main>
 
 </body>
 </html>
+
 
 <?php
 
