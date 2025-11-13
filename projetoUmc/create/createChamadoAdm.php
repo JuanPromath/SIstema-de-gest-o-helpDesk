@@ -58,6 +58,7 @@
             <?php
 
               $result = select("Cargo");
+              $result = selectInner(["Conta_Sistema", 'funcionario', 'cargo'], ['Conta_Sistema.codigo', 'funcionario.nome', 'funcionario.cpf', 'cargo.nome as cargo']);
 
               if (mysqli_num_rows($result) > 0) {
                           
@@ -71,6 +72,26 @@
 
               ?>
         </select>
+        <label for="conta">Conta:</label>
+        <select name="conta" id="conta">
+          <option value="">Selecione o cargo</option>
+            <?php
+
+              $result = selectInner(["Conta_Sistema", 'funcionario', 'cargo'], ['Conta_Sistema.codigo', 'funcionario.nome', 'funcionario.cpf', 'cargo.nome as cargo']);
+
+              if (mysqli_num_rows($result) > 0) {
+                          
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      print_r("<option value='" . $row['codigo']."'>" . $row['nome'] . ' - ' . $row['cpf']);
+                  }
+
+              }else {
+                  print_r("sem cargos");//tem que virar excessão
+              }
+
+              ?>
+        </select>
+        
 
         <button type="submit">Enviar Chamado</button>
       </form>

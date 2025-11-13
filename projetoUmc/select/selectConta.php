@@ -12,7 +12,7 @@
 
             include '../conexao.php';
             //selectInner(["Conta_Sistema", 'funcionario']);
-            $result = selectInner(["Conta_Sistema", 'funcionario', 'cargo']);
+            $result = selectInner(["Conta_Sistema", 'funcionario', 'cargo'], ['Conta_Sistema.codigo', 'funcionario.nome', 'funcionario.cpf', 'cargo.nome as cargo']);
 
             if (mysqli_num_rows($result) > 0) {
                         
