@@ -12,7 +12,7 @@
 
             include '../conexao.php';
 
-            $result = select("conta");
+            $result = select("Conta_Sistema");
 
             if (mysqli_num_rows($result) > 0) {
                         

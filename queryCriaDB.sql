@@ -38,7 +38,7 @@ CREATE TABLE Chamado(
     Id_cliente int not null,
     Id_funcionario int not null,
     Id_conta int not null,
-    id_cargo int,
+    id_cargo int not null,
     FOREIGN KEY (id_cargo) REFERENCES cargo(codigo),
     FOREIGN KEY (Id_cliente) REFERENCES Cliente(codigo),
     FOREIGN KEY (Id_funcionario) REFERENCES Funcionario(codigo),

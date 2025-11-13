@@ -29,41 +29,28 @@
       <label for="cargo">Cargo:</label>
       <select id="cargo" name="cargo" required>
         <option value="">Selecione o cargo</option>
-        <option value="atendente">Atendente</option>
-        <option value="gerente">tecnico</option>
-        <option value="outro">Outro</option>
+        <?php
+
+          include '../conexao.php';
+
+          $result = select("Cargo");
+
+          if (mysqli_num_rows($result) > 0) {
+                      
+              while ($row = mysqli_fetch_assoc($result)) {
+                  print_r("<option value='" . $row['codigo']."'>" . $row['nome']);
+              }
+
+          }else {
+              print_r("sem cargos");//tem que virar excessão
+          }
+
+        ?>
       </select>
 
       <button type="submit">Cadastrar Funcionário</button>
     </form>
   </main>
-
-</body>
-</html>
-
-            <?php
-
-                include '../conexao.php';
-
-                $result = select("Cargo");
-
-                if (mysqli_num_rows($result) > 0) {
-                            
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        print_r("<option class='bucefalos' value='" . $row['codigo']."'>" . $row['nome']);
-                    }
-
-                }else {
-                    print_r("sem cargos");//tem que virar excessão
-                }
-
-            ?>
-
-        </select>
-
-        <button type="submit">enviar</button>
-
-    </form>
 
 </body>
 </html>

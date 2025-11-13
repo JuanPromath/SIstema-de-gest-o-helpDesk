@@ -30,15 +30,32 @@
         <label for="bo">Número de BO:</label>
         <input type="text" id="bo" name="bo" placeholder="Digite o número do BO" required>
 
-        <label for="cliente">CPF do Cliente:</label>
-        <input type="text" id="cliente" name="cliente" placeholder="Digite o CPF do cliente" required>
+        <label for="cliente">Cliente:</label>
+        <select name="cliente" id="cliente" required>
+          <option value="">Selecione o cargo</option>
+            <?php
+
+              include '../conexao.php';
+
+              $result = select("cliente");
+
+              if (mysqli_num_rows($result) > 0) {
+                          
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      print_r("<option value='" . $row['codigo']."'>" . $row['nome']);
+                  }
+
+              }else {
+                  print_r("sem cargos");//tem que virar excessão
+              }
+
+              ?>
+        </select>
 
         <label for="cargo">Cargo:</label>
         <select name="cargo" id="cargo">
           <option value="">Selecione o cargo</option>
             <?php
-
-              include '../conexao.php';
 
               $result = select("Cargo");
 
@@ -65,6 +82,23 @@
 </html>
 
 
+            <?php
+
+                include '../conexao.php';
+
+                $result = select("Cargo");
+
+                if (mysqli_num_rows($result) > 0) {
+                            
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        print_r("<option class='bucefalos' value='" . $row['codigo']."'>" . $row['nome']);
+                    }
+
+                }else {
+                    print_r("sem cargos");//tem que virar excessão
+                }
+
+            ?>
 
         </select>
         <select name="funcionario" id="funcionario">

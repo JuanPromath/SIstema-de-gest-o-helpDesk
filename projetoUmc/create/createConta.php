@@ -14,7 +14,7 @@
 
     </nav>
 
-    <h1>criacao cargo</h1>
+    <h1>Cadastro conta</h1>
 
     <form action="createConta.php" method="post">
 
@@ -25,7 +25,7 @@
 
             include '../conexao.php';
 
-            $result = select("funcionario");
+            $result = select("funcionario", ['funcionario.codigo', 'funcionario.nome']);
 
             if (mysqli_num_rows($result) > 0) {
                         

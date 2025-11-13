@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleFuncionario.css">
 </head>
 <body>
 
@@ -14,16 +14,17 @@
     <a href="../index.php">Home</a>
 
     </nav>
+    <main class="container">
+        <h1>criacao cargo</h1>
 
-    <h1>criacao cargo</h1>
+        <form action="createCargo.php" method="post" class="form-box">
 
-    <form action="createCargo.php" method="post">
+            <input type="text" id='cargo' name="nome" placeholder="cargo">
 
-        <input type="text" id='cargo' name="nome" placeholder="cargo">
+            <button type="submit">enviar</button>
 
-        <button type="submit">enviar</button>
-
-    </form>
+        </form>
+    </main>
 
 </body>
 </html>
