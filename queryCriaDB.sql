@@ -33,8 +33,8 @@ CREATE TABLE Conta_Sistema(
 
 CREATE TABLE Chamado(
 	codigo INT PRIMARY KEY AUTO_INCREMENT,
-    bo TEXT,
-    status TEXT,
+    bo TEXT not null,
+    status TEXT not null,
     Id_cliente int not null,
     Id_funcionario int not null,
     Id_conta int not null,

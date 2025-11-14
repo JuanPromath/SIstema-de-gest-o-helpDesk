@@ -27,8 +27,8 @@
 
       <!-- Lado direito (formulário) -->
       <form action="createChamado.php" method="post" class="form-inputs">
-        <label for="bo">Número de BO:</label>
-        <input type="text" id="bo" name="bo" placeholder="Digite o número do BO" required>
+        <label for="bo">BO:</label>
+        <input type="text" id="bo" name="bo" placeholder="Descreva o BO" required>
 
         <label for="cliente">Cliente:</label>
         <select name="cliente" id="cliente" required>
@@ -111,6 +111,13 @@
               ?>
         </select>
 
+        <select name="status" id="status">
+          <option value="">Selecione o estado do chamado</option>
+          <option value="aberto">aberto</option>
+          <option value="fechado">fechado</option>
+    
+        </select>
+
         <button type="submit">Enviar Chamado</button>
       </form>
     </section>
@@ -176,6 +183,6 @@
 
     $chamado.
 
-    insert(['bo', 'status', 'Id_funcionario'], $_POST, "Chamado");
+    insert(['bo', 'Id_cliente', 'Id_cargo', 'Id_conta','Id_funcionario', 'status'], $_POST, "Chamado");
 
 ?>
