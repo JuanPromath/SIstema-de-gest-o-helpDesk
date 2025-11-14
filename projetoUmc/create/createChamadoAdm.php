@@ -26,7 +26,7 @@
       </div>
 
       <!-- Lado direito (formulário) -->
-      <form action="createChamado.php" method="post" class="form-inputs">
+      <form action="createChamadoAdm.php" method="post" class="form-inputs">
         <label for="bo">BO:</label>
         <input type="text" id="bo" name="bo" placeholder="Descreva o BO" required>
 
@@ -123,65 +123,16 @@
     </section>
   </main>
 
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-            <?php
-
-                include '../conexao.php';
-
-                $result = select("Cargo");
-
-                if (mysqli_num_rows($result) > 0) {
-                            
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        print_r("<option class='bucefalos' value='" . $row['codigo']."'>" . $row['nome']);
-                    }
-
-                }else {
-                    print_r("sem cargos");//tem que virar excessão
-                }
-
-            ?>
-
-        </select>
-        <select name="funcionario" id="funcionario">
-            <?php
-
-                $result = select("funcionario",['funcionario.codigo', 'funcionario.nome', 'cargo.nome as cargo']);
-
-                if (mysqli_num_rows($result) > 0) {
-                    var_dump($result);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        print_r("<option class='bucefalos' value='" . $row['codigo']."'>" . $row['nome'] . ' - ' . $row['cargo']);
-                    }
-
-                }else {
-                    print_r("sem cargos");//tem que virar excessão
-                }
-
-            ?>
-
-        </select>
-
-        <button type="submit">enviar</button>
-
-    </form>
-
-
 </body>
 </html>
 
 <?php
 
-    if(!validaCampo('senha') && !validaCampo('funcionario')){
-        die('campos inválidos');
+    foreach($_POST as $key => $value){
+      if(!validaCampo($key)){
+        die('campo inválido');
+      };
     }
-    $chamado = [];
-
-    $chamado.
 
     insert(['bo', 'Id_cliente', 'Id_cargo', 'Id_conta','Id_funcionario', 'status'], $_POST, "Chamado");
 
