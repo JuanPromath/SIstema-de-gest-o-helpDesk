@@ -131,7 +131,7 @@
     foreach($_POST as $key => $value){
       if(!validaCampo($key)){
         die('campo inválido');
-      };
+      }
     }
 
     insert(['bo', 'Id_cliente', 'Id_cargo', 'Id_conta','Id_funcionario', 'status'], $_POST, "Chamado");
