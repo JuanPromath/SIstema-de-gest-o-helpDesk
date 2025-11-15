@@ -81,37 +81,7 @@
     </section>
   </main>
 
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-
-        </select>
-        <select name="funcionario" id="funcionario">
-            <?php
-
-                $result = select("funcionario",['funcionario.codigo', 'funcionario.nome', 'cargo.nome as cargo']);
-
-                if (mysqli_num_rows($result) > 0) {
-                    var_dump($result);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        print_r("<option class='bucefalos' value='" . $row['codigo']."'>" . $row['nome'] . ' - ' . $row['cargo']);
-                    }
-
-                }else {
-                    print_r("sem cargos");//tem que virar excessão
-                }
-
-            ?>
-
-        </select>
-
-        <button type="submit">enviar</button>
-
-    </form>
-
-
+  <script src="chamado.js"></script>
 </body>
 </html>
 

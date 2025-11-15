@@ -13,5 +13,3 @@ cpfInput.addEventListener('input', () => {
   cpfDisplay.textContent = cpfInput.value || '—';
 });
 
-
-
