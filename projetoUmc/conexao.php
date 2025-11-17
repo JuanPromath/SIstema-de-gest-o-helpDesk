@@ -43,7 +43,7 @@
         return $result;
     }
 
-    function selectInner($table,$campos=["*"]){
+    function selectInner($table,$campos=["*"], $teste=false){
         
         GLOBAL $conn;
         $select = "SELECT ";
@@ -63,10 +63,20 @@
             $select .= ' INNER JOIN '. $table[$next] . ' on '. $table[$next] . '.codigo = ' . $table[$i].'.id_'.$table[$next];
         }
         echo $select;
-
-        $result = mysqli_query($conn, $select);
+        if($teste){
+            $result = mysqli_query($conn, $select);
+        }else{
+            $result = mysqli_query($conn, $select);
+        }
         return $result;
 
+    }
+
+    function teste($table){
+        $result = select($table, ["*"], true);
+        $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $row = json_encode($row);
+        return $row;
     }
 
     function insert($campos, $valores, $table){
