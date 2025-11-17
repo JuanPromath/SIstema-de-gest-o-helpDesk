@@ -35,6 +35,22 @@
 
         ?>
     <ul>
-    
+
+    <div id="lista-chamados">Carregando...</div>
+
+    <template id="cargo-template">
+        <div class="cargo-card">
+            <h3 class="cargo-codigo"></h3>
+            <p class="cargo-nome"></p>
+            <div class="actions">
+                <button class="btn-editar">Editar</button>
+                <button class="btn-excluir">Excluir</button>
+            </div>
+        </div>
+    </template>
+
+    <button onclick="teste()">teste</button>
+
+    <script src="main.js"></script>
 </body>
 </html>
