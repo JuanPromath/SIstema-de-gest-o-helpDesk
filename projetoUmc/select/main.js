@@ -27,11 +27,24 @@ function montarLista(dados){
       const editarBtn = node.querySelector('.btn-editar');
       const excluirBtn = node.querySelector('.btn-excluir');
   
-      //editarBtn.addEventListener('click', ()=> abrirEdicao(item));
-      //excluirBtn.addEventListener('click', ()=> excluirChamado(item.id));
+      editarBtn.addEventListener('click', ()=> abrirEdicao(item));
+      excluirBtn.addEventListener('click', ()=> excluirChamado(item.codigo));
   
       listaChamados.appendChild(node);
     });
   }
 
+  async function excluirChamado(id){
+    if(!confirm('Excluir o chamado #' + id + '?')) return;
+    try{
+      const res = await fetch('excluir.php', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ id })
+      });
+      if(!res.ok) throw new Error('Erro: '+res.status);
+      await res.json();
+      carregarChamados();
+    }catch(e){ console.error(e); alert('Erro ao excluir.'); }
+  }
 

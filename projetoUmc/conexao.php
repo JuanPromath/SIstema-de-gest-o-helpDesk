@@ -43,6 +43,38 @@
         return $result;
     }
 
+    function selectWhere($table,$campos=["*"],$where){
+
+        GLOBAL $conn;
+        $select = "SELECT ";
+
+        for($i = 0; $i < sizeof($campos);$i++){
+            
+            if($i == sizeof($campos) - 1){
+                $select .= $campos[$i] . " FROM " . $table;
+            }else{
+                $select .= $campos[$i] . ", ";
+            }
+
+        }
+        $select .= " where " . $where['campo'] . " = " . $where['valor'];
+
+        $result = mysqli_query($conn, $select);
+        return $result;
+    }
+
+
+    //DELETE FROM nome_da_tabela WHERE condição; 
+    function delete($table, $condition){
+
+        GLOBAL $conn;
+
+        $query = "DELETE FROM " . $table . " WHERE $condition";
+        $result = mysqli_query($conn, $query);
+        return $result;
+
+    }
+
     function selectInner($table,$campos=["*"], $teste=false){
         
         GLOBAL $conn;
