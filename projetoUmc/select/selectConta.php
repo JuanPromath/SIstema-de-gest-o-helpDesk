@@ -38,8 +38,12 @@
     <template id="template-conta">
         <div class="card-conta">
 
-            <h3></h3>
-
+            <h3 class='conta-codigo'></h3>
+            <p class='conta-email'></p>
+            <p class='conta-senha'></p>
+            <p class='conta-nome'></p>
+            <p class='conta-cpf'></p>
+            <p class='conta-idF'></p>
 
         </div>
     </template>
