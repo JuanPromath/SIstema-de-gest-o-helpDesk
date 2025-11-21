@@ -32,7 +32,25 @@
 
 
         ?>
-    <ul>
+    </ul>
+
+    <div id="lista-cliente">
+
+            teste
+
+    </div>
     
+    <template id="template-cliente">
+        <div class="cliente-card">
+            <h3 class = "cliente-nome"></h3>
+            <p class = "cliente-codigo"></p>
+            <p class = "cliente-cpf"></p>
+            <p class = "cliente-email"></p>
+        </div>
+
+    </template>
+
+    <script type="module" src="mCliente.js"></script>
+
 </body>
 </html>

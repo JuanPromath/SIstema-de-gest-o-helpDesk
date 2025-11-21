@@ -33,6 +33,8 @@
 
         ?>
     <ul>
+
+    <script type="module" src="mChamado.js"></script>
     
 </body>
 </html>

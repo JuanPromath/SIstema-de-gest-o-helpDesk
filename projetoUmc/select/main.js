@@ -1,5 +1,17 @@
 
-carregarCargos();
+//carregarCargos();
+
+export default async function loadTable(table, listaCard, template, classeNome){
+    console.log(JSON.stringify({table}));
+    const res = await fetch('listar.php',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({table})
+    })
+    const dados = await res.json();
+    console.log(dados);
+    montarLista(dados, listaCard, template, classeNome);//dados, listCard é a div que a lista vai ser feita
+}
 
 async function carregarCargos(){//faz uma requisição ao back-end para pegar todos os cargos
       const res = await fetch('listar.php');//rota php que faz a consulta no bd
@@ -8,7 +20,35 @@ async function carregarCargos(){//faz uma requisição ao back-end para pegar to
       montarLista(dados);//monta uma lista com esses dados
 }
 
-function montarLista(dados){//monta uma lista de cards a partir de cada registro de dados
+function montarLista(dados, listaCard, template, classeNome){//monta uma lista de cards a partir de cada registro de dados
+  //const listaChamados = document.getElementById("lista-cargo");//div mãe dessa lista
+  listaCard.innerHTML = '';
+  if(!dados || dados.length === 0){
+    listaCard.textContent = 'Nenhum chamado encontrado.';
+    return;
+  }
+  dados.forEach(item => {//itera cada item de dados, e faz um card
+    //console.table(item);  
+    const node = template.content.cloneNode(true);
+    console.log(item);
+    let i = 0;
+    for(const prop in item){
+      node.querySelector(`.${classeNome[i]}`).textContent = item[prop];
+      i++;
+    }
+    //node.querySelector('.cargo-codigo').textContent = item.codigo;
+    //node.querySelector('.cargo-nome').textContent = item.nome;
+    //const editarBtn = node.querySelector('.btn-editar');
+    //const excluirBtn = node.querySelector('.btn-excluir');
+
+    //editarBtn.addEventListener('click', ()=> montarformEdit(item));
+    //excluirBtn.addEventListener('click', ()=> excluirChamado(item.codigo));
+
+    listaCard.appendChild(node);
+  });
+}
+
+/*function montarLista(dados){//monta uma lista de cards a partir de cada registro de dados
     const listaChamados = document.getElementById("lista-cargo");//div mãe dessa lista
     listaChamados.innerHTML = '';
     const template = document.getElementById("cargo-template");//pega o template
@@ -29,17 +69,19 @@ function montarLista(dados){//monta uma lista de cards a partir de cada registro
   
       listaChamados.appendChild(node);
     });
-  }
+  }*/
 
   function montarformEdit(item){
-      const feedbackGeral = document.getElementById("feedback-geral");
       const formEdit = document.getElementById("edit-form");
       formEdit.innerHTML = '';
       const template = document.getElementById("edit-template");
       const node = template.content.cloneNode(true);
       node.querySelector('#cargo').value = item.nome;
+      const feedbackGeral = node.getElementById("feedback-geral");
       input = node.querySelector('#cargo');
       const form = node.querySelector("form");
+      console.log("formulario");
+      console.log(form);
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         nomeInput = input.value;
@@ -59,7 +101,7 @@ function montarLista(dados){//monta uma lista de cards a partir de cada registro
           const j = await res.json();
           feedbackGeral.textContent = j.mensagem || 'Operação realizada.';
           form.reset();
-          carregarChamados();
+          carregarCargos();
         }catch(err){ console.error(err); feedbackGeral.textContent = 'Erro ao enviar os dados.'; }
 
 
@@ -80,7 +122,7 @@ function montarLista(dados){//monta uma lista de cards a partir de cada registro
       });
       if(!res.ok) throw new Error('Erro: '+res.status);
       await res.json();
-      carregarChamados();
+      carregarCargos();
     }catch(e){ console.error(e); alert('Erro ao excluir.'); }
   }
 

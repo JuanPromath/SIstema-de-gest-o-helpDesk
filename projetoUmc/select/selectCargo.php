@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Cargo</title>
-    <link rel="stylesheet" href="index.css">
+    
 </head>
 <body>
 
@@ -36,7 +36,7 @@
     <ul>
 
     <div id="lista-cargo">Carregando...</div><!-- onde vai ter os cards-->
-    <div id="edit-form">teste</div><!-- onde vai ter o formulário de edição-->
+    <div id="edit-form"></div><!-- onde vai ter o formulário de edição-->
     
     <template id="edit-template"><!--template do form de edição-->
         <form action="">

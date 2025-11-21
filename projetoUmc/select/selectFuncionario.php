@@ -33,6 +33,24 @@
 
         ?>
     <ul>
+
+    <div id="lista-funcionario">
+n
+    </div>
+
+    <template id="template-funcionario">
+        <div class="funcionario-card">
+            <h3 class = "funcionario-nome"></h3>
+            <p class = "funcionario-codigo"></p>
+            <p class = "funcionario-cpf"></p>
+            <p class = "funcionario-email"></p>
+            <p class = "funcionario-cargo"></p>
+            <p class = "funcionario-cargoID"></p>
+        </div>
+
+    </template>
     
+    <script type="module" src="mFuncionario.js"></script>
+
 </body>
 </html>

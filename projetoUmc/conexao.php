@@ -121,7 +121,7 @@
             $next = $i + 1;
             $select .= ' INNER JOIN '. $table[$next] . ' on '. $table[$next] . '.codigo = ' . $table[$i].'.id_'.$table[$next];
         }
-        echo $select;
+        //echo $select;
         if($teste){
             $result = mysqli_query($conn, $select);
         }else{
