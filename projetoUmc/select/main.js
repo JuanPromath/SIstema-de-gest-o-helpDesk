@@ -1,25 +1,22 @@
-function teste(){
 
-    console.log("restr");
-    
+carregarCargos();
 
-}
-
-carregarChamados();
-
-async function carregarChamados(){
-      const res = await fetch('listar.php');
+async function carregarCargos(){//faz uma requisição ao back-end para pegar todos os cargos
+      const res = await fetch('listar.php');//rota php que faz a consulta no bd
       const dados = await res.json();
-      console.log(dados);
-      montarLista(dados);
+      console.log(dados);//imprime oq foi captado
+      montarLista(dados);//monta uma lista com esses dados
 }
 
-function montarLista(dados){
-    const listaChamados = document.getElementById("lista-chamados");
+function montarLista(dados){//monta uma lista de cards a partir de cada registro de dados
+    const listaChamados = document.getElementById("lista-cargo");//div mãe dessa lista
     listaChamados.innerHTML = '';
-    const template = document.getElementById("cargo-template");
-    if(!dados || dados.length === 0){ listaChamados.textContent = 'Nenhum chamado encontrado.'; return; }
-    dados.forEach(item => {
+    const template = document.getElementById("cargo-template");//pega o template
+    if(!dados || dados.length === 0){
+      listaChamados.textContent = 'Nenhum chamado encontrado.';
+      return;
+    }
+    dados.forEach(item => {//itera cada item de dados, e faz um card
       console.table(item);  
       const node = template.content.cloneNode(true);
       node.querySelector('.cargo-codigo').textContent = item.codigo;
@@ -47,7 +44,7 @@ function montarLista(dados){
         e.preventDefault();
         nomeInput = input.value;
         const payload = {
-          id: item.codigo,
+          codigo: item.codigo,
           nome : nomeInput.trim()
         }
 

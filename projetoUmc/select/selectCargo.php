@@ -15,8 +15,6 @@
 
             $result = select("cargo");
 
-            teste('cargo');
-
             if (mysqli_num_rows($result) > 0) {
                         
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -37,10 +35,10 @@
         ?>
     <ul>
 
-    <div id="lista-chamados">Carregando...</div>
-    <div id="edit-form">teste</div>
+    <div id="lista-cargo">Carregando...</div><!-- onde vai ter os cards-->
+    <div id="edit-form">teste</div><!-- onde vai ter o formulário de edição-->
     
-    <template id="edit-template">
+    <template id="edit-template"><!--template do form de edição-->
         <form action="">
 
         <input type="text" id='cargo' name="nome" placeholder="cargo">
@@ -53,7 +51,7 @@
 
     </template>
 
-    <template id="cargo-template">
+    <template id="cargo-template"><!--template do card de cada registro de cargo-->
         <div class="cargo-card">
             <h3 class="cargo-codigo"></h3>
             <p class="cargo-nome"></p>
@@ -63,8 +61,6 @@
             </div>
         </div>
     </template>
-
-    <button onclick="teste()">teste</button>
 
     <script src="main.js"></script>
 </body>

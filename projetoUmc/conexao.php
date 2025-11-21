@@ -21,6 +21,33 @@
 
     };
 
+    function update($table, $alteracoes, $condition){//alteracoes = [nome => "nome-Novo"]
+
+        global $conn;
+
+        $query = "UPDATE $table SET ";
+        $index = 0;
+
+        foreach($alteracoes as $key => $value){
+
+            $value = "'" . $value . "'";
+
+            if($index == sizeof($alteracoes) - 1){
+                $query .= $key . ' = ' . $value;
+            }else{
+                $query .= $key . ' = ' . $value . ', ';
+            }
+
+            $index++;
+        }
+
+        $query .= ' WHERE ' . $condition;
+
+        $result = mysqli_query($conn, $query);
+        return $result;
+
+    }
+
     function select($table,$campos=["*"]){
 
         GLOBAL $conn;
@@ -102,13 +129,6 @@
         }
         return $result;
 
-    }
-
-    function teste($table){
-        $result = select($table, ["*"], true);
-        $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        $row = json_encode($row);
-        return $row;
     }
 
     function insert($campos, $valores, $table){
