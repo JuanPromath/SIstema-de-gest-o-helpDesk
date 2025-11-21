@@ -43,7 +43,7 @@
         return $result;
     }
 
-    function selectWhere($table,$campos=["*"],$where){
+    function selectWhere($table,$campos=["*"],$condition){
 
         GLOBAL $conn;
         $select = "SELECT ";
@@ -57,7 +57,7 @@
             }
 
         }
-        $select .= " where " . $where['campo'] . " = " . $where['valor'];
+        $select .= " WHERE $condition";
 
         $result = mysqli_query($conn, $select);
         return $result;

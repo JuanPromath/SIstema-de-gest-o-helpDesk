@@ -38,6 +38,20 @@
     <ul>
 
     <div id="lista-chamados">Carregando...</div>
+    <div id="edit-form">teste</div>
+    
+    <template id="edit-template">
+        <form action="">
+
+        <input type="text" id='cargo' name="nome" placeholder="cargo">
+        
+        <div id="feedback-geral" role="status"></div>
+        <button type="submit">Editar</button>
+    
+        </form>
+
+
+    </template>
 
     <template id="cargo-template">
         <div class="cargo-card">
