@@ -32,7 +32,13 @@
 
 
         ?>
-    <ul>
+    </ul>
+
+    <div id="lista-chamado"></div>
+
+    <template id='template-chamado'>
+
+    </template>
 
     <script type="module" src="mChamado.js"></script>
     
