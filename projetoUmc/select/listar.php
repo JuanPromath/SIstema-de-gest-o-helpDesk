@@ -11,6 +11,8 @@
         $result = selectInner(["Conta_Sistema", 'funcionario'], ['Conta_Sistema.codigo', 'funcionario.nome', 'funcionario.cpf', 'Id_funcionario as funcionarioID', 'funcionario.email', 'senha']);
     }else if($dados['table'] == 'chamado'){
         $result = selectInner([$dados['table'],'cliente', 'conta'], ["cliente.nome as nome_cliente", "cliente.cpf as cpf_cliente", "conta.Id_funcionario as atendenteId"]);
+    }else{
+        $result = select($dados['table'], ["*"]);
     }
 
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);

@@ -10,7 +10,7 @@ export default async function loadTable(table, listaCard, template, classeNome){
     })
     const dados = await res.json();
     console.log(dados);
-    montarLista(dados, listaCard, template, classeNome);//dados, listCard é a div que a lista vai ser feita
+    montarLista(dados, listaCard, template, classeNome, table);//dados, listCard é a div que a lista vai ser feita
 }
 
 async function carregarCargos(){//faz uma requisição ao back-end para pegar todos os cargos
@@ -20,13 +20,15 @@ async function carregarCargos(){//faz uma requisição ao back-end para pegar to
       montarLista(dados);//monta uma lista com esses dados
 }
 
-function montarLista(dados, listaCard, template, classeNome){//monta uma lista de cards a partir de cada registro de dados
+function montarLista(dados, listaCard, template, classeNome, table){//monta uma lista de cards a partir de cada registro de dados
   //const listaChamados = document.getElementById("lista-cargo");//div mãe dessa lista
   listaCard.innerHTML = '';
   if(!dados || dados.length === 0){
     listaCard.textContent = 'Nenhum chamado encontrado.';
     return;
   }
+  const debug = document.getElementById('debug')
+  console.log(debug);
   dados.forEach(item => {//itera cada item de dados, e faz um card
     //console.table(item);  
     const node = template.content.cloneNode(true);
@@ -38,11 +40,11 @@ function montarLista(dados, listaCard, template, classeNome){//monta uma lista d
     }
     //node.querySelector('.cargo-codigo').textContent = item.codigo;
     //node.querySelector('.cargo-nome').textContent = item.nome;
-    //const editarBtn = node.querySelector('.btn-editar');
-    //const excluirBtn = node.querySelector('.btn-excluir');
+    const editarBtn = node.querySelector('.btn-editar');
+    const excluirBtn = node.querySelector('.btn-excluir');
 
     //editarBtn.addEventListener('click', ()=> montarformEdit(item));
-    //excluirBtn.addEventListener('click', ()=> excluirChamado(item.codigo));
+    excluirBtn.addEventListener('click', ()=> excluirChamado(item.codigo, listaCard, template, classeNome, table));
 
     listaCard.appendChild(node);
   });
@@ -101,7 +103,7 @@ function montarLista(dados, listaCard, template, classeNome){//monta uma lista d
           const j = await res.json();
           feedbackGeral.textContent = j.mensagem || 'Operação realizada.';
           form.reset();
-          carregarCargos();
+          //loadTable(dados, listaCard, template, classeNome,)
         }catch(err){ console.error(err); feedbackGeral.textContent = 'Erro ao enviar os dados.'; }
 
 
@@ -112,17 +114,22 @@ function montarLista(dados, listaCard, template, classeNome){//monta uma lista d
   
   }
 
-  async function excluirChamado(id){
-    if(!confirm('Excluir o chamado #' + id + '?')) return;
+  async function excluirChamado(id, listaCard, template, classeNome, table){
+    console.log(JSON.stringify({ id, table }));
+    if(!confirm('Excluir o registro #' + id + '?')) return;
     try{
       const res = await fetch('excluir.php', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ id })
+        body: JSON.stringify({ id, table })
       });
       if(!res.ok) throw new Error('Erro: '+res.status);
-      await res.json();
-      carregarCargos();
-    }catch(e){ console.error(e); alert('Erro ao excluir.'); }
+      console.log("remonta");
+      console.table(table);
+      loadTable(table, listaCard, template, classeNome);
+    }catch(e){ 
+      console.error(e); 
+      alert('Erro ao excluir.'); 
+    }
   }
 

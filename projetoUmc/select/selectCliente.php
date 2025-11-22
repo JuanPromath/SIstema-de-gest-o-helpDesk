@@ -46,6 +46,10 @@
             <p class = "cliente-codigo"></p>
             <p class = "cliente-cpf"></p>
             <p class = "cliente-email"></p>
+            <div class="actions">
+                <button class="btn-editar">Editar</button>
+                <button class="btn-excluir">Excluir</button>
+            </div>
         </div>
 
     </template>

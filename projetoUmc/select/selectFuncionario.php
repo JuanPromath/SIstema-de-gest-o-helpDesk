@@ -35,8 +35,10 @@
     <ul>
 
     <div id="lista-funcionario">
-n
+
     </div>
+
+    <div id='debug'>teste</div>
 
     <template id="template-funcionario">
         <div class="funcionario-card">
@@ -46,8 +48,11 @@ n
             <p class = "funcionario-email"></p>
             <p class = "funcionario-cargo"></p>
             <p class = "funcionario-cargoID"></p>
+            <div class="actions">
+                <button class="btn-editar">Editar</button>
+                <button class="btn-excluir">Excluir</button>
+            </div>
         </div>
-
     </template>
     
     <script type="module" src="mFuncionario.js"></script>

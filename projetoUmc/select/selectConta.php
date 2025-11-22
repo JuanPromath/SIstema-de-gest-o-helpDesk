@@ -44,7 +44,10 @@
             <p class='conta-nome'></p>
             <p class='conta-cpf'></p>
             <p class='conta-idF'></p>
-
+            <div class="actions">
+                <button class="btn-editar">Editar</button>
+                <button class="btn-excluir">Excluir</button>
+            </div>
         </div>
     </template>
     

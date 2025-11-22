@@ -7,8 +7,8 @@ if(!isset($dados['id'])){
     exit; 
 }
 
-$result = selectWhere("cargo", ["*"], ["campo" => "codigo", "valor" => $dados['id']]);
-$teste = delete("cargo","codigo = " . $dados['id']);
+$result = selectWhere($dados['table'], ["*"], "codigo = " . $dados['id']);
+$teste = delete($dados['table'],"codigo = " . $dados['id']);
 $result = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 /*$id = (int)$dados['id'];

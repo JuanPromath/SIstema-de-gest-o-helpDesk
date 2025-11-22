@@ -62,6 +62,6 @@
         </div>
     </template>
 
-    <script src="main.js"></script>
+    <script type="module" src="mCargo.js"></script>
 </body>
 </html>
