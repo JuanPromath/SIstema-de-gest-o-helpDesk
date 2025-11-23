@@ -99,7 +99,7 @@
 
     }
 
-    function selectInner($table,$campos=["*"], $teste=false){
+    function selectInner($table,$campos=["*"]){
         
         GLOBAL $conn;
         $select = "SELECT ";
@@ -119,11 +119,34 @@
             $select .= ' INNER JOIN '. $table[$next] . ' on '. $table[$next] . '.codigo = ' . $table[$i].'.id_'.$table[$next];
         }
         //echo $select;
-        if($teste){
-            $result = mysqli_query($conn, $select);
-        }else{
-            $result = mysqli_query($conn, $select);
+  
+        $result = mysqli_query($conn, $select);
+        return $result;
+
+    }
+
+    function selectInnerWhere($table,$campos=["*"]){
+        
+        GLOBAL $conn;
+        $select = "SELECT ";
+
+        for($i = 0; $i < sizeof($campos);$i++){
+            
+            if($i == sizeof($campos) - 1){
+                $select .= $campos[$i] . " FROM " . $table[0];
+            }else{
+                $select .= $campos[$i] . ", ";
+            }
+
         }
+        
+        for($i = 0; $i < sizeof($table) - 1; $i++){
+            $next = $i + 1;
+            $select .= ' INNER JOIN '. $table[$next] . ' on '. $table[$next] . '.codigo = ' . $table[$i].'.id_'.$table[$next];
+        }
+        //echo $select;
+  
+        $result = mysqli_query($conn, $select);
         return $result;
 
     }
