@@ -58,15 +58,19 @@
     </template>
     
     <template id='edit-template'>
-
-        <label for="">nome: </label>
-        <input type="text" id='func-nome'>
-        <label for="">email: </label>
-        <input type="email" id='func-email'>
-        <label for="">cpf: </label>
-        <input type="text" id='func-cpf'>
-        <label for="">id_cargo: </label>
-        <input type="text" id='func-cargoID'>
+        <form action="">
+            <label for="">nome: </label>
+            <input type="text" id='func-nome'>
+            <label for="">email: </label>
+            <input type="email" id='func-email'>
+            <label for="">cpf: </label>
+            <input type="text" id='func-cpf'>
+            <label for="">id_cargo: </label>
+            <input type="text" id='func-cargoID'>
+            <div id="feedback-geral" role="status"></div>
+            <button type="submit">Editar</button>
+    
+        </form>
 
     </template>
     

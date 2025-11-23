@@ -45,7 +45,7 @@ function montarLista(dados, listaCard, template, classeNome, table, listaInputsI
     const editarBtn = node.querySelector('.btn-editar');
     const excluirBtn = node.querySelector('.btn-excluir');
 
-    editarBtn.addEventListener('click', ()=> montarformEdit(dados[1][index], listaInputsID));
+    editarBtn.addEventListener('click', ()=> montarformEdit(dados[1][index], listaInputsID, table, listaCard, template, classeNome));
     excluirBtn.addEventListener('click', ()=> excluirChamado(item.codigo, listaCard, template, classeNome, table, listaInputsID));
 
     listaCard.appendChild(node);
@@ -75,49 +75,56 @@ function montarLista(dados, listaCard, template, classeNome, table, listaInputsI
     });
   }*/
 
-  function montarformEdit(item, listaInputsID){
+  function montarformEdit(item, listaInputsID, table, listaCard, template, classeNome){
       console.table(item);
       const formEdit = document.getElementById("edit-form");
       formEdit.innerHTML = '';
-      const template = document.getElementById("edit-template");
-      const node = template.content.cloneNode(true);
+      const templateEdit = document.getElementById("edit-template");
+      const node = templateEdit.content.cloneNode(true);
       let chaves =  Object.keys(item);
       let i = 1
+      let inputsList = []
       listaInputsID.forEach(id =>{
         console.log(node.querySelector(id));
         node.querySelector(`#${id}`).value = item[chaves[i]];
+        inputsList.push(node.querySelector(`#${id}`));
         i++;
       });
-      //const feedbackGeral = node.getElementById("feedback-geral");
-      //input = node.querySelector('#cargo');
-      //const form = node.querySelector("form");
+      const feedbackGeral = node.getElementById("feedback-geral");
+      const form = node.querySelector("form");
       //console.log("formulario");
       //console.log(form);
-      /*form.addEventListener('submit', async (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        nomeInput = input.value;
         const payload = {
-          codigo: item.codigo,
-          nome : nomeInput.trim()
+          codigo: item.codigo
         }
+        i = 1
+        inputsList.forEach( input => {
+
+          payload[chaves[i]] = input.value.trim();
+          i++;
+        });
+        console.log('payload');
+        console.table(payload);
 
         try{
           const res = await fetch('update.php', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
-            body: JSON.stringify(payload)
+            body: JSON.stringify({table , payload})
           });
-          console.log(JSON.stringify(payload));
+          console.log(JSON.stringify({table , payload}));
           if(!res.ok) throw new Error('Erro servidor '+res.status);
           const j = await res.json();
           feedbackGeral.textContent = j.mensagem || 'Operação realizada.';
           form.reset();
-          //loadTable(dados, listaCard, template, classeNome,)
+          loadTable(table, listaCard, template, classeNome, listaInputsID)
         }catch(err){ console.error(err); feedbackGeral.textContent = 'Erro ao enviar os dados.'; }
 
 
 
-      });*/
+      });
 
       formEdit.appendChild(node);
   

@@ -53,13 +53,17 @@
 
         
     <template id='edit-template'>
-
-        <label for="">nome: </label>
-        <input type="text" id='cli-nome'>
-        <label for="">email: </label>
-        <input type="email" id='cli-email'>
-        <label for="">cpf: </label>
-        <input type="text" id='cli-cpf'>
+        <form action="">
+            <label for="">nome: </label>
+            <input type="text" id='cli-nome'>
+            <label for="">email: </label>
+            <input type="email" id='cli-email'>
+            <label for="">cpf: </label>
+            <input type="text" id='cli-cpf'>
+            <div id="feedback-geral" role="status"></div>
+            <button type="submit">Editar</button>
+    
+        </form>
 
     </template>
 

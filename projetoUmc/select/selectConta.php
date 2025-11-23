@@ -55,11 +55,14 @@
 
         
     <template id='edit-template'>
-
-        <label for="">senha: </label>
-        <input type="text" id='conta-senha'>
-        <label for="">funcionario id: </label>
-        <input type="text" id='conta-funcId'>
+        <form action="">
+            <label for="">senha: </label>
+            <input type="text" id='conta-senha'>
+            <label for="">funcionario id: </label>
+            <input type="text" id='conta-funcId'>
+            <div id="feedback-geral" role="status"></div>
+            <button type="submit">Editar</button>
+        </form>
 
     </template>
     
