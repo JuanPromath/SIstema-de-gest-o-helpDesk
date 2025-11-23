@@ -35,6 +35,8 @@
     <ul>
 
     <div id="lista-conta"></div>
+    <div id='edit-form'></div>
+
     <template id="template-conta">
         <div class="card-conta">
 
@@ -49,6 +51,16 @@
                 <button class="btn-excluir">Excluir</button>
             </div>
         </div>
+    </template>
+
+        
+    <template id='edit-template'>
+
+        <label for="">senha: </label>
+        <input type="text" id='conta-senha'>
+        <label for="">funcionario id: </label>
+        <input type="text" id='conta-funcId'>
+
     </template>
     
     <script type="module" src="mConta.js"></script>

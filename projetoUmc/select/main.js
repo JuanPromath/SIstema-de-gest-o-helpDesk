@@ -46,7 +46,7 @@ function montarLista(dados, listaCard, template, classeNome, table, listaInputsI
     const excluirBtn = node.querySelector('.btn-excluir');
 
     editarBtn.addEventListener('click', ()=> montarformEdit(dados[1][index], listaInputsID));
-    excluirBtn.addEventListener('click', ()=> excluirChamado(item.codigo, listaCard, template, classeNome, table));
+    excluirBtn.addEventListener('click', ()=> excluirChamado(item.codigo, listaCard, template, classeNome, table, listaInputsID));
 
     listaCard.appendChild(node);
   });
@@ -123,7 +123,7 @@ function montarLista(dados, listaCard, template, classeNome, table, listaInputsI
   
   }
 
-  async function excluirChamado(id, listaCard, template, classeNome, table){
+  async function excluirChamado(id, listaCard, template, classeNome, table, listaInputsID){
     console.log(JSON.stringify({ id, table }));
     if(!confirm('Excluir o registro #' + id + '?')) return;
     try{
@@ -135,7 +135,7 @@ function montarLista(dados, listaCard, template, classeNome, table, listaInputsI
       if(!res.ok) throw new Error('Erro: '+res.status);
       console.log("remonta");
       console.table(table);
-      loadTable(table, listaCard, template, classeNome);
+      loadTable(table, listaCard, template, classeNome, listaInputsID);
     }catch(e){ 
       console.error(e); 
       alert('Erro ao excluir.'); 

@@ -36,6 +36,7 @@
     <ul>
 
     <div id="lista-cargo">Carregando...</div><!-- onde vai ter os cards-->
+    <div id='edit-form'></div>
     <div id="edit-form"></div><!-- onde vai ter o formulário de edição-->
     
     <template id="edit-template"><!--template do form de edição-->

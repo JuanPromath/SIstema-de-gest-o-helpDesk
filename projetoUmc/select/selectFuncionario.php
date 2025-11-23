@@ -38,11 +38,7 @@
 
     </div>
 
-    <div id='edit-form'>
-
-        
-
-    </div>
+    <div id='edit-form'></div>
 
     <div id='debug'>teste</div>
 

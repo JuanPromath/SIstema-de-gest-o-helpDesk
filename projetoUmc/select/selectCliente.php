@@ -34,11 +34,8 @@
         ?>
     </ul>
 
-    <div id="lista-cliente">
-
-            teste
-
-    </div>
+    <div id="lista-cliente"></div>
+    <div id='edit-form'></div>
     
     <template id="template-cliente">
         <div class="cliente-card">
@@ -51,6 +48,18 @@
                 <button class="btn-excluir">Excluir</button>
             </div>
         </div>
+
+    </template>
+
+        
+    <template id='edit-template'>
+
+        <label for="">nome: </label>
+        <input type="text" id='cli-nome'>
+        <label for="">email: </label>
+        <input type="email" id='cli-email'>
+        <label for="">cpf: </label>
+        <input type="text" id='cli-cpf'>
 
     </template>
 
