@@ -27,8 +27,7 @@ function montarLista(dados, listaCard, template, classeNome, table, listaInputsI
     listaCard.textContent = 'Nenhum chamado encontrado.';
     return;
   }
-  const debug = document.getElementById('debug')
-  console.log(debug);
+  
   let dadosMain = dados[0];
 
   dadosMain.forEach(item => {//itera cada item de dados, e faz um card
