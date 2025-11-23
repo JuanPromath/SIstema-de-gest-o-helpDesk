@@ -96,7 +96,7 @@
           <option value="">Selecione o funcionario</option>
             <?php
 
-              $result = select("funcionario", ['funcionario.codigo','funcionario.nome', 'cargo.nome as cargo', 'cpf', 'email']);
+              $result = selectInner(['funcionario','cargo'], ['funcionario.nome','funcionario.codigo','cargo.nome as cargo', 'id_cargo as cargoID','cpf', 'email']);
 
               if (mysqli_num_rows($result) > 0) {
                           
