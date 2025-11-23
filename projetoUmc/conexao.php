@@ -62,9 +62,6 @@
             }
 
         }
-        if($table == 'funcionario'){
-            $select .= ' INNER JOIN cargo on cargo.codigo = funcionario.id_cargo;';
-        }
 
         $result = mysqli_query($conn, $select);
         return $result;

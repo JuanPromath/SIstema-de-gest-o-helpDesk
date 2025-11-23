@@ -12,7 +12,7 @@
 
             include '../conexao.php';
 
-            $result = select("funcionario", ['funcionario.nome', 'cargo.nome as cargo', 'cpf', 'email']);
+            $result = selectInner(['funcionario','cargo'], ['funcionario.nome','funcionario.codigo','cargo.nome as cargo', 'id_cargo as cargoID','cpf', 'email']);
 
             if (mysqli_num_rows($result) > 0) {
                         
@@ -38,6 +38,12 @@
 
     </div>
 
+    <div id='edit-form'>
+
+        
+
+    </div>
+
     <div id='debug'>teste</div>
 
     <template id="template-funcionario">
@@ -53,6 +59,19 @@
                 <button class="btn-excluir">Excluir</button>
             </div>
         </div>
+    </template>
+    
+    <template id='edit-template'>
+
+        <label for="">nome: </label>
+        <input type="text" id='func-nome'>
+        <label for="">email: </label>
+        <input type="email" id='func-email'>
+        <label for="">cpf: </label>
+        <input type="text" id='func-cpf'>
+        <label for="">id_cargo: </label>
+        <input type="text" id='func-cargoID'>
+
     </template>
     
     <script type="module" src="mFuncionario.js"></script>

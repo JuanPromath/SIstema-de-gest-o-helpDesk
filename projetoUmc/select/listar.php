@@ -6,7 +6,7 @@
     $result = '';
 
     if($dados['table'] == 'funcionario'){
-        $result = select($dados['table'], ['funcionario.nome','funcionario.codigo','cargo.nome as cargo', 'id_cargo as cargoID','cpf', 'email']);
+        $result = selectInner(['funcionario','cargo'], ['funcionario.nome','funcionario.codigo','cargo.nome as cargo', 'id_cargo as cargoID','cpf', 'email']);
     }else if($dados['table'] == 'Conta_Sistema'){
         $result = selectInner(["Conta_Sistema", 'funcionario'], ['Conta_Sistema.codigo', 'funcionario.nome', 'funcionario.cpf', 'Id_funcionario as funcionarioID', 'funcionario.email', 'senha']);
     }else if($dados['table'] == 'chamado'){
@@ -15,7 +15,9 @@
         $result = select($dados['table'], ["*"]);
     }
 
-    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $result2 = select($dados['table'], ["*"]);
+
+    $row = [mysqli_fetch_all($result, MYSQLI_ASSOC), mysqli_fetch_all($result2, MYSQLI_ASSOC)];
     $row = json_encode($row);
     echo $row;
 ?>
