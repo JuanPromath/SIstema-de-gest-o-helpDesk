@@ -13,6 +13,8 @@ const cpfDisplay = document.getElementById('cpfDisplay');
 
 const cargoSelect = document.getElementById('cargo');
 
+const buttonEnviar = document.querySelector('.enviar');
+
 async function encontrarTodosFuncionarios(){
   const res = await fetch('todosFunc.php')
   const dados = await res.json();
@@ -30,6 +32,25 @@ async function encontrarTodosFuncionarios(){
     option.value = element['codigo'];
     selectFuncionario.add(option);
   });
+}
+
+
+async function enviarChamado(){
+    const payload = {};
+    payload[boInput['name']] = boInput.value;
+    payload[cpfInput['name']] = cpfInput.value;
+    payload[selectCargo['name']] = selectCargo.value;
+    payload[selectFuncionario['name']] = selectFuncionario.value;
+    console.table(payload);
+    console.log(JSON.stringify(payload));
+    const res = await fetch('enviarChamado.php', {
+      method:'post',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    })
+    const dados = await res.json();
+    console.log(dados);
+
 }
 
 async function encontrarFuncionarioPorID(id){
@@ -117,6 +138,14 @@ selectCargo.addEventListener('change', () =>{
 selectFuncionario.addEventListener('change',()=>{
     console.log(cargoSelect.options);
     encontrarFuncionarioPorID(selectFuncionario.value);
+})
+
+const form = document.getElementById('form-chamado');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  enviarChamado();
+
 })
 
 boInput.addEventListener('input', () => {

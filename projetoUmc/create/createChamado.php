@@ -26,7 +26,7 @@
       </div>
 
       <!-- Lado direito (formulário) -->
-      <form action="createChamado.php" method="post" class="form-inputs">
+      <form class="form-inputs" id='form-chamado'>
         <label for="bo">BO:</label>
         <input type="text" id="bo" name="bo" placeholder="Digite o número do BO" required>
 
@@ -38,7 +38,7 @@
           <option value="">Selecione o cargo</option>
             <?php
 
-              include '../conexao.php';
+              include_once '../conexao.php';
 
               $result = select("Cargo");
 
@@ -58,16 +58,12 @@
         <select name="funcionario" id="funcionario">
           <option value=''>Selecione um funcionario</option>
         </select>
-        <button type="submit">Enviar Chamado</button>
+        <button type="submit" class='enviar'>Enviar Chamado</button>
       </form>
     </section>
   </main>
   <template id='template-cliente-info'>
     Nome: <span id='nome-cliente'></span> email: <span id='email-cliente'></span>
-
-  </template>
-  <template id='option-func'>
-    <option value="" class='opcao'></option>
   </template>
   <script src="chamado.js"></script>
 </body>
@@ -76,7 +72,7 @@
 <?php
 
     if(!validaCampo('senha') && !validaCampo('funcionario')){
-        die('campos inválidos');
+        //die('campos inválidos');
     }
     $chamado = [];
 
