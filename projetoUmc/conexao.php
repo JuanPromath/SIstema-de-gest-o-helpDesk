@@ -125,7 +125,7 @@
 
     }
 
-    function selectInnerWhere($table,$campos=["*"]){
+    function selectInnerWhere($table,$campos=["*"], $condition){
         
         GLOBAL $conn;
         $select = "SELECT ";
@@ -145,6 +145,7 @@
             $select .= ' INNER JOIN '. $table[$next] . ' on '. $table[$next] . '.codigo = ' . $table[$i].'.id_'.$table[$next];
         }
         //echo $select;
+        $select .= " WHERE $condition";
   
         $result = mysqli_query($conn, $select);
         return $result;

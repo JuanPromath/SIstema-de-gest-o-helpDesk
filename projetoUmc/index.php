@@ -1,4 +1,8 @@
+<?php
+    session_start();
+    print_r($_SESSION);
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,5 +27,9 @@
     <a href="select/selectconta.php">conta lista</a>
     <a href="#">link de ndads</a>
     </nav>
+
+    <?php
+        print_r($_SESSION);
+    ?>
 </body>
 </html>
