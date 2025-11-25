@@ -84,9 +84,10 @@
                 <h3 class="chamado-bo"></h3>
                 <p><strong>Código:</strong> <span class="chamado-codigo"></span></p>
                 <p><strong>Status:</strong> <span class="chamado-status"></span></p>
-                <p><strong>Cliente:</strong> <span class="chamado-nome-cliente"></span> (CPF: <span class="chamado-cpf-cliente"></span>)</p>
-                <p><strong>Funcionário:</strong> <span class="chamado-nome-funcionario"></span></p>
-                <p><strong>Atendente:</strong> <span class="chamado-nome-atendente"></span></p>
+                <p><strong>Idcliente: </strong> <span class="chamado-IdCliente"></span> <span class="chamado-Idfuncionario"></span> <span class='chamado-cargoID'></span> <span class='chamado-IdConta'></span></p>
+                <p><strong>Cliente:</strong> <span class="chamado-nome-cliente"></span>(CPF: <span class="chamado-cpf-cliente"></span>)</p>
+                <p><strong>Funcionário:</strong> <span class="chamado-nome-funcionario"></span></span>(CPF: <span class="chamado-cpf-funcionario"></span>)</p>
+                <p><strong>Atendente:</strong> <span class="chamado-nome-atendente"></span></span>(CPF: <span class="chamado-cpf-atendente"></span>)</p>
                 <p><strong>Cargo:</strong> <span class="chamado-cargo"></span></p>
                 <div class="actions">
                     <button class="btn btn-primary btn-editar" style="flex: 1;">Editar</button>

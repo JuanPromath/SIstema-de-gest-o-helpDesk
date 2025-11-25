@@ -85,7 +85,7 @@
                 <p><strong>Código:</strong> <span class="funcionario-codigo"></span></p>
                 <p><strong>CPF:</strong> <span class="funcionario-cpf"></span></p>
                 <p><strong>E-mail:</strong> <span class="funcionario-email"></span></p>
-                <p><strong>Cargo:</strong> <span class="funcionario-cargo"></span></p>
+                <p><strong>Cargo:</strong> <span class="funcionario-cargo"></span> (Id: <span class='funcionario-cargoID'></span>)</p>
                 <div class="actions">
                     <button class="btn btn-primary btn-editar" style="flex: 1;">Editar</button>
                     <button class="btn btn-danger btn-excluir" style="flex: 1;">Excluir</button>

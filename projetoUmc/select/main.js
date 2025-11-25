@@ -31,11 +31,12 @@ function montarLista(dados, listaCard, template, classeNome, table, listaInputsI
   let dadosMain = dados[0];
 
   dadosMain.forEach(item => {//itera cada item de dados, e faz um card
-    //console.table(item);  
+    console.table(item);  
     const node = template.content.cloneNode(true);
     let index = dadosMain.findIndex(current => current === item);
     let i = 0;
     for(const prop in item){
+      console.log(`.${classeNome[i]} - ${item[prop]}`);
       node.querySelector(`.${classeNome[i]}`).textContent = item[prop];
       i++;
     }

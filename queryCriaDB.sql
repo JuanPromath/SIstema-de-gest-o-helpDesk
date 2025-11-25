@@ -27,6 +27,7 @@ CREATE TABLE Funcionario(
 CREATE TABLE Conta_Sistema(
 	codigo INT PRIMARY KEY AUTO_INCREMENT,
     senha VARCHAR(20) NOT NULL,
+    nivel_acesso text,
     Id_funcionario INT NOT NULL,
     FOREIGN KEY (Id_funcionario) REFERENCES Funcionario(codigo)
 );
