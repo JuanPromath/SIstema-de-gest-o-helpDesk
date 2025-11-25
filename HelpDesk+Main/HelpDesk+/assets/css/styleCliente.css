@@ -1,0 +1,112 @@
+/* ======== Ajuste global ======== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+  /* FUNDO DO SITE */
+  background-image: url('img/ChatGPT Image 17 de nov. de 2025, 13_42_18.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: #1f2937;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  color: #333;
+}
+
+/* ======== Container ======== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ======== Caixa do formulário ======== */
+.form-box {
+  background: rgba(255, 255, 255, 0.6);  /* vidro suave */
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 15px;
+
+  /* sombra mais elegante */
+  box-shadow: 
+    0 4px 18px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form-box label {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #374151;
+}
+
+/* ======== Inputs ======== */
+.form-box input {
+  width: 100%;
+  padding: 0.8rem;
+
+  margin-top: 0.5rem;
+
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #bbb; /* mais fino e moderno */
+  border-radius: 8px;
+
+  font-size: 1rem;
+
+  transition: 0.3s;
+}
+
+.form-box input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  outline: none;
+}
+
+/* ======== Botão ======== */
+button {
+  margin-top: 1.8rem;
+  padding: 0.9rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #1d4ed8;
+  transform: scale(1.02);
+}
+

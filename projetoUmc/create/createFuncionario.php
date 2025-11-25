@@ -3,55 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Criação de Funcionário</title>
-  <link rel="stylesheet" href="styleFuncionario.css">
+  <title>Criar Funcionário - HelpDesk+</title>
+  <link rel="stylesheet" href="../assets/css/global.css">
 </head>
 <body>
-
+  <?php session_start(); ?>
   <nav>
-    <a href="../index.php">Home</a>
+    <div class="nav-container">
+      <a href="../index.php" class="logo">HelpDesk</a>
+      <div class="nav-links">
+        <a href="../index.php">Dashboard</a>
+        <a href="createChamado.php">Novo Chamado</a>
+        <a href="createCliente.php">Novo Cliente</a>
+        <a href="createFuncionario.php">Novo Funcionário</a>
+      </div>
+    </div>
   </nav>
 
-  <main class="container">
-    <h1>Formulário de Criação de Funcionário</h1>
+  <div class="container">
+    <div class="page-header">
+      <h1>Criar Novo Funcionário</h1>
+      <p>Preencha os dados do funcionário abaixo</p>
+    </div>
 
-    <form action="createFuncionario.php" method="post" class="form-box">
+    <div class="form-container">
+      <form action="createFuncionario.php" method="post">
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" required>
+        </div>
 
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" placeholder="Digite o nome" required>
+        <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+        </div>
 
-      <label for="cpf">CPF:</label>
-      <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF" maxlength="11" required>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="funcionario@email.com" required>
+        </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Digite o email" required>
+        <div class="form-group">
+          <label for="cargo">Cargo</label>
+          <select id="cargo" name="cargo" required>
+            <option value="">Selecione o cargo</option>
+            <?php
+              include '../conexao.php';
+              $result = select("Cargo");
 
-      <label for="cargo">Cargo:</label>
-      <select id="cargo" name="cargo" required>
-        <option value="">Selecione o cargo</option>
-        <?php
-
-          include '../conexao.php';
-
-          $result = select("Cargo");
-
-          if (mysqli_num_rows($result) > 0) {
-                      
-              while ($row = mysqli_fetch_assoc($result)) {
-                  print_r("<option value='" . $row['codigo']."'>" . $row['nome']);
+              if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                  echo "<option value='" . $row['codigo']."'>" . $row['nome'] . "</option>";
+                }
+              } else {
+                echo "<option value=''>Nenhum cargo disponível</option>";
               }
+            ?>
+          </select>
+        </div>
 
-          }else {
-              print_r("sem cargos");//tem que virar excessão
-          }
-
-        ?>
-      </select>
-
-      <button type="submit">Cadastrar Funcionário</button>
-    </form>
-  </main>
-
+        <button type="submit" class="btn btn-primary">Cadastrar Funcionário</button>
+        <a href="../index.php" class="btn btn-secondary" style="margin-left: 1rem;">Cancelar</a>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
 
