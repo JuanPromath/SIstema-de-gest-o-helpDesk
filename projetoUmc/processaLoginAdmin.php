@@ -68,7 +68,7 @@
     $_SESSION['is_admin'] = true;
     $_SESSION['tipo_usuario'] = 'administrador';
     
-    //header('location: index.php');
+    header('location: index.php');
     exit;
 ?>
 

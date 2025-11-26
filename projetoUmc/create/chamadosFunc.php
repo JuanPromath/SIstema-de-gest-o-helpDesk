@@ -77,10 +77,12 @@
             <p>Veja todos os chamados atribuidos a você</p>
         </div>
     
-
-        <div id='chamados-fechados' class='lista-chamado'></div>
-        <div id='chamados-abertos' class='lista-chamado'></div>
-
+        <div class="page-header">
+            <h2>lista de chamados abertos</h2>
+            <div id='chamados-fechados' class='lista-chamado'></div>
+            <h2>lista de chamados fechados</h2>
+            <div id='chamados-abertos' class='lista-chamado'></div>
+        </div>
         <template id='chamado-template'>
 
             <div id='chamado-card' class='chamado-card'>
