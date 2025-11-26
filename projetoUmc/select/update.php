@@ -12,11 +12,15 @@ $alvo = mysqli_fetch_all($alvo, MYSQLI_ASSOC)[0];
 $alteracoes = [];
 
 foreach($alvo as $key => $value){
-
-    if($payload[$key] != $value){
-        $alteracoes[$key] = $payload[$key];
+    if(isset($payload[$key])){
+            
+        if($payload[$key] != $value){
+            
+            $alteracoes[$key] = $payload[$key];
+            
+        }
+        
     }
-
 }
 
 $teste = update($dados['table'], $alteracoes, 'codigo = ' . $id);

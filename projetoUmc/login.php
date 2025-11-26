@@ -166,6 +166,8 @@
                 $erroMsg = 'E-mail ou senha incorretos!';
             } elseif ($_GET['erro'] == '2') {
                 $erroMsg = 'Você não tem permissão de administrador!';
+            }elseif($_GET['erro'] == '3'){
+                $erroMsg = 'Faça Login no login de administrador!';
             }
             if ($erroMsg) {
                 echo '<div class="alert alert-error" style="margin-bottom: 1.5rem; padding: 1rem; border-radius: 6px; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;">' . htmlspecialchars($erroMsg) . '</div>';

@@ -13,6 +13,7 @@
     $totalClientes = mysqli_num_rows(select("cliente"));
     $totalFuncionarios = mysqli_num_rows(select("funcionario"));
     $totalCargos = mysqli_num_rows(select("cargo"));
+    $totalContas = mysqli_num_rows(select("conta_sistema"));
     
     // Obter nome do funcionário logado
     $nomeUsuario = isset($_SESSION['funcionarioID']) ? '' : 'Usuário';
@@ -79,6 +80,12 @@
                 <h3>Total de Cargos</h3>
                 <div class="number"><?php echo $totalCargos; ?></div>
                 <a href="select/selectCargo.php" class="link">Ver todos →</a>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Total de Contas</h3>
+                <div class="number"><?php echo $totalContas; ?></div>
+                <a href="select/selectConta.php" class="link">Ver todos →</a>
             </div>
         </div>
 

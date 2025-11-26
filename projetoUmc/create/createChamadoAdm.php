@@ -154,17 +154,6 @@
             <label for="funcionario">Funcionário</label>
             <select name="funcionario" id="funcionario" required>
               <option value="">Selecione o funcionário</option>
-              <?php
-                $result = selectInner(['funcionario','cargo'], ['funcionario.nome','funcionario.codigo','cargo.nome as cargo', 'id_cargo as cargoID','cpf', 'email']);
-
-                if (mysqli_num_rows($result) > 0) {
-                  while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<option value='" . $row['codigo']."'>" . $row['nome'] . ' - ' . $row['cargo'] . "</option>";
-                  }
-                } else {
-                  echo "<option value=''>Nenhum funcionário disponível</option>";
-                }
-              ?>
             </select>
           </div>
 
@@ -183,6 +172,7 @@
       </div>
     </div>
   </div>
+  <script type="module" src="chamadoAdm.js"></script>
 </body>
 </html>
 

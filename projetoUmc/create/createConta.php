@@ -32,6 +32,12 @@
                 <div class="form-group">
                     <label for="senha">Senha</label>
                     <input type="password" id='senha' name="senha" placeholder="Digite a senha" required>
+                    <label for="senha">Nivel de acesso</label>
+                    <select name="nivel_acesso" id="nivel_acesso">
+                        <option value="1">Administrador</option>
+                        <option value="2">atendente</option>
+                        <option value="3">funcionario</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -67,6 +73,6 @@
         die('campos inválidos');
     }
 
-    insert(['senha', 'Id_funcionario'], $_POST, "Conta_Sistema");
+    insert(['senha', 'nivel_acesso','Id_funcionario'], $_POST, "Conta_Sistema");
 
 ?>

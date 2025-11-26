@@ -80,12 +80,11 @@
 
         <template id="template-conta">
             <div class="card-conta">
-                <h3><strong>Código:</strong> <span class='conta-codigo'></span></h3>
+                <h3><strong>Código:</strong> <span class='conta-codigo'></span> Nivel de acesso: <span class='conta-acesso'></span></h3>
                 <p><strong>E-mail:</strong> <span class='conta-email'></span></p>
                 <p><strong>Senha:</strong> <span class='conta-senha'></span></p>
-                <p><strong>Funcionário:</strong> <span class='conta-nome'></span></p>
+                <p><strong>Funcionário:</strong> <span class='conta-nome'></span> (id: <span class='conta-idF'></span>)</p>
                 <p><strong>CPF:</strong> <span class='conta-cpf'></span></p>
-                <p><strong>Cargo:</strong> <span class='conta-cargo'></span></p>
                 <div class="actions">
                     <button class="btn btn-primary btn-editar" style="flex: 1;">Editar</button>
                     <button class="btn btn-danger btn-excluir" style="flex: 1;">Excluir</button>
@@ -104,6 +103,10 @@
                     <div class="form-group">
                         <label for="conta-funcId">ID do Funcionário</label>
                         <input type="text" id='conta-funcId' class="form-group input">
+                    </div>
+                    <div class="form-group">
+                        <label for="conta-acces">Nivel de acesso</label>
+                        <input type="text" id='conta-acces' class="form-group input">
                     </div>
                     <div id="feedback-geral" role="status"></div>
                     <button type="submit" class="btn btn-primary">Salvar Alterações</button>

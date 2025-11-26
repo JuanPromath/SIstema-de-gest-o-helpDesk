@@ -8,7 +8,7 @@
     if($dados['table'] == 'funcionario'){
         $result = selectInner(['funcionario','cargo'], ['funcionario.nome','funcionario.codigo','cargo.nome as cargo', 'id_cargo as cargoID','cpf', 'email']);
     }else if($dados['table'] == 'Conta_Sistema'){
-        $result = selectInner(["Conta_Sistema", 'funcionario'], ['Conta_Sistema.codigo', 'funcionario.nome', 'funcionario.cpf', 'Id_funcionario as funcionarioID', 'funcionario.email', 'senha']);
+        $result = selectInner(["Conta_Sistema", 'funcionario'], ['Conta_Sistema.codigo','nivel_acesso', 'funcionario.nome', 'funcionario.cpf', 'Id_funcionario as funcionarioID', 'funcionario.email', 'senha']);
     }else if($dados['table'] == 'chamado'){
         $query = 'SELECT chamado.codigo, bo, status, Id_cliente, cliente.nome as nome_cliente, cliente.cpf as cliente_cpf, 
             chamado.Id_funcionario, fm.nome as nome_funcionario, fm.cpf as cpf_funcionario, 
