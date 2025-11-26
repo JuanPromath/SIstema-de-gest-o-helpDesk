@@ -1,3 +1,9 @@
+<?php
+    require '../verificaLogado.php';
+    irparalogin('../login.php');
+    verificaPermissao(['2'], '../forbbiden.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -8,7 +8,7 @@
     $conn = mysqli_connect($servername, $username, $password, $database);
 
     if(!$conn){
-        die("vc é burro: " . mysqli_connect_error());
+        die("erro: " . mysqli_connect_error());
     }
 
     function validaCampo($campo){
@@ -188,7 +188,7 @@
             $index++;
         }
 
-        echo $insert;
+        //echo $insert;
         $resposta = mysqli_query($conn,$insert);
     }
 

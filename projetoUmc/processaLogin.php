@@ -27,6 +27,9 @@
     }
     $_SESSION['tipo_usuario'] = 'funcionario';
     if($_SESSION['nivel_acesso'] == '1'){
+        foreach($conta as $campo => $valor){
+            unset($_SESSION[$campo]);    
+        };
         header('location: login.php?erro=3');
         exit;
     }

@@ -1,3 +1,8 @@
+<?php
+    require '../verificaLogado.php';
+    irparalogin('../login.php');
+    verificaPermissao(['2','3'], '../forbbiden.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -54,7 +59,6 @@
     </style>
 </head>
 <body>
-    <?php session_start(); ?>
     <nav>
         <div class="nav-container">
             <a href="../index.php" class="logo">HelpDesk</a>

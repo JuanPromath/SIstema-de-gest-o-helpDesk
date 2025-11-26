@@ -33,7 +33,9 @@
     );
 
     if(mysqli_num_rows($result) < 1){
-        unset($_SESSION['user']);
+        foreach($conta as $campo => $valor){
+            unset($_SESSION[$campo]);    
+        }
         header('location: login.php?erro=1');
         exit;
     }
@@ -52,6 +54,9 @@
     
     // Se não for admin, redirecionar para login normal
     if(!$isAdmin) {
+        foreach($conta as $campo => $valor){
+            unset($_SESSION[$campo]);    
+        }
         header('location: login.php?erro=2');
         exit;
     }

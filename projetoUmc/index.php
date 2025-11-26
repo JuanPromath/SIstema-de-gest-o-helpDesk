@@ -1,13 +1,8 @@
 <?php
-    session_start();
     require_once 'conexao.php';
-    
-    // Verificar se o usuário está logado
-    if(!isset($_SESSION['codigo']) || !isset($_SESSION['email'])) {
-        header('location: login.php');
-        exit;
-    }
-    
+    require 'verificaLogado.php';
+    irparalogin('login.php');
+    verificaPermissao(['3','2'], 'forbbiden.php');
     // Contar registros para o dashboard
     $totalChamados = mysqli_num_rows(select("chamado"));
     $totalClientes = mysqli_num_rows(select("cliente"));
